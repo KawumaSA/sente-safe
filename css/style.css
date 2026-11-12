@@ -1,0 +1,943 @@
+/* Sente Safe - shared styles for all pages */
+
+:root {
+  --navy: #1f3a5f;
+  --navy-dark: #162a45;
+  --ink: #1b2430;
+  --muted: #55627a;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --line: #d5dde8;
+  --amber: #e8a317;
+  --amber-soft: #fff6df;
+  --green: #1f7a4d;
+  --green-soft: #e6f4ec;
+  --red: #b3261e;
+  --red-soft: #fdecea;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--navy);
+}
+
+a:hover {
+  color: var(--navy-dark);
+}
+
+a:focus,
+.btn:focus {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* skip link for keyboard users */
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--amber);
+  color: var(--navy-dark);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+
+.skip:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* ---------- header and navigation ---------- */
+
+.site-header {
+  background: var(--navy);
+  color: #fff;
+  border-bottom: 4px solid var(--amber);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: #fff;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  background: var(--navy-dark);
+}
+
+.nav-list a[aria-current="page"] {
+  background: #fff;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.nav-list a.nav-urgent {
+  border: 2px solid var(--amber);
+}
+
+.nav-list a.nav-urgent[aria-current="page"] {
+  background: var(--amber);
+  color: var(--navy-dark);
+}
+
+.nav-list a:focus {
+  outline: 3px solid var(--amber);
+  outline-offset: 1px;
+}
+
+/* ---------- page layout ---------- */
+
+main {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.page-title {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  color: var(--navy);
+  font-size: 2.1rem;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+h3 {
+  margin: 1.25rem 0 0.4rem;
+  color: var(--navy);
+  font-size: 1.2rem;
+}
+
+.page-title p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* two sections side by side on wide screens, stacked on phones */
+.sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.sections.stack {
+  grid-template-columns: 1fr;
+}
+
+.block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem 1.5rem;
+  scroll-margin-top: 1rem;
+}
+
+.back {
+  margin: 1.5rem 0 0.5rem;
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 56rem) {
+  .sections {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .sections.stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- home page hero and cards ---------- */
+
+.hero {
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 2.6rem;
+}
+
+.hero .lead {
+  max-width: 42rem;
+  color: #dbe5f3;
+  font-size: 1.2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+}
+
+.card p {
+  flex: 1;
+  margin: 0 0 0.9rem;
+}
+
+@media (min-width: 44rem) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--navy-dark);
+  color: #fff;
+}
+
+.btn-alert {
+  background: var(--amber);
+  color: var(--navy-dark);
+}
+
+.btn-alert:hover {
+  background: #cf8f0e;
+  color: var(--navy-dark);
+}
+
+.btn-quiet {
+  background: #fff;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+
+.btn-quiet:hover {
+  background: var(--bg);
+  color: var(--navy);
+}
+
+/* ---------- reusable content pieces for the sections ---------- */
+
+/* warning or tip box: <div class="callout"> ... </div>, add class "safe" for a green one */
+.callout {
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  background: var(--amber-soft);
+  border-left: 6px solid var(--amber);
+  border-radius: 6px;
+}
+
+.callout.safe {
+  background: var(--green-soft);
+  border-left-color: var(--green);
+}
+
+.callout p {
+  margin: 0;
+}
+
+/* invented sample scam message: <p class="example"> ... </p> */
+.example {
+  margin: 0.8rem 0;
+  padding: 0.7rem 1rem;
+  background: #eef1f5;
+  border: 1px dashed var(--muted);
+  border-radius: 8px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+/* numbered steps: <ol class="steps"> */
+.steps {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  position: relative;
+  margin-bottom: 0.7rem;
+  padding: 0.2rem 0 0.2rem 2.6rem;
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.9rem;
+}
+
+/* tables: <table class="data"> */
+.data {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.97rem;
+}
+
+.data caption {
+  padding-bottom: 0.4rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.data th,
+.data td {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.data th {
+  background: var(--navy);
+  color: #fff;
+}
+
+.data tr:nth-child(even) td {
+  background: var(--bg);
+}
+
+/* glossary: <dl class="glossary"> with dt and dd pairs */
+.glossary dt {
+  margin-top: 0.8rem;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.glossary dd {
+  margin: 0.1rem 0 0;
+}
+
+/* quote from the interview or a source: <blockquote class="quote"> */
+.quote {
+  margin: 1rem 0;
+  padding: 0.4rem 1rem;
+  border-left: 5px solid var(--navy);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* figure with credit: <figure class="figure"> <img> <figcaption> */
+.figure {
+  margin: 1rem 0;
+}
+
+.figure figcaption {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* placeholder for unfinished sections, delete the box when the content is in */
+.todo {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border: 2px dashed var(--amber);
+  border-radius: 8px;
+  background: var(--amber-soft);
+  font-size: 0.95rem;
+}
+
+.todo p {
+  margin: 0 0 0.4rem;
+}
+
+.todo ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.25rem 0;
+  background: var(--navy);
+  color: #dbe5f3;
+  font-size: 0.95rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.4rem;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+/* ---------- content extras ---------- */
+
+/* citation numbers like [1] that link to the sources list */
+.ref {
+  font-size: 0.8rem;
+  vertical-align: super;
+  text-decoration: none;
+}
+
+.ref:hover {
+  text-decoration: underline;
+}
+
+/* a section that takes the full width of the page */
+.block.wide {
+  grid-column: 1 / -1;
+}
+
+.hero-note {
+  max-width: 42rem;
+  color: #dbe5f3;
+}
+
+/* scam tip box on the home page */
+.tip {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--navy-dark);
+  border-left: 6px solid var(--amber);
+  border-radius: 6px;
+}
+
+.tip p {
+  margin: 0 0 0.6rem;
+}
+
+.tip-label {
+  color: var(--amber);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#tip-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* checklist on the Stay safe page */
+.checkform fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.checkform legend {
+  margin-bottom: 0.6rem;
+  padding: 0;
+  font-weight: 700;
+}
+
+.checks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checks label {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checks label:hover {
+  background: var(--bg);
+}
+
+.checks input {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.25rem;
+}
+
+.verdict {
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  border-left: 6px solid var(--green);
+  border-radius: 6px;
+  background: var(--green-soft);
+  font-weight: 700;
+}
+
+.verdict.v1 {
+  border-left-color: var(--amber);
+  background: var(--amber-soft);
+}
+
+.verdict.v2 {
+  border-left-color: var(--red);
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+/* FAQ dropdowns (plain HTML details and summary) */
+details {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+summary {
+  color: var(--navy);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+details p {
+  margin: 0.5rem 0 0.2rem;
+}
+
+.sources li {
+  margin-bottom: 0.5rem;
+  overflow-wrap: anywhere;
+  font-size: 0.95rem;
+}
+
+.data th[scope="row"] {
+  background: var(--bg);
+  color: var(--navy);
+}
+
+/* ---------- image slots ---------- */
+
+/* once a real <img> replaces the slot it fills the width of its section */
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* placeholder box, remove it when the real picture goes in */
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 11rem;
+  padding: 1rem;
+  border: 3px dashed var(--navy);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.slot p {
+  margin: 0 0 0.3rem;
+}
+
+.slot-title {
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.slot-meta {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.img-slot-fig {
+  margin: 0.8rem 0 1.1rem;
+}
+
+/* hero: text on the left, picture on the right on wide screens */
+.hero-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero .figure {
+  margin: 0;
+}
+
+.hero .slot {
+  min-height: 14rem;
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #dbe5f3;
+}
+
+.hero .slot-title {
+  color: #ffffff;
+}
+
+.hero figcaption {
+  color: #dbe5f3;
+}
+
+@media (min-width: 56rem) {
+  .hero-top {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 40rem) {
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .block {
+    padding: 1rem;
+  }
+
+  .data {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- additions for the finished content ---------- */
+
+/* home page: three rules under the cards (Member 1) */
+.hero .rules-h {
+  margin-top: 1.75rem;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.rules {
+  margin: 0;
+  padding-left: 1.3rem;
+  color: #dbe5f3;
+}
+
+.rules li {
+  margin-bottom: 0.3rem;
+}
+
+/* small print under a fact, showing where it came from */
+.source {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* red flags in sample messages: plain until the button is pressed (js/main.js) */
+.flag {
+  background: transparent;
+  color: inherit;
+}
+
+.show-flags .flag {
+  background: #ffd9d4;
+  color: #8a1c10;
+  border-bottom: 2px solid #c0392b;
+  font-weight: 700;
+}
+
+.btn-small {
+  padding: 0.35rem 0.8rem;
+  border: 0;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+/* checklist and its result (Member 7) */
+.checklist fieldset {
+  margin: 0 0 0.8rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.checklist legend {
+  padding: 0 0.4rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.checklist ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  margin: 0.45rem 0;
+}
+
+.checklist label {
+  display: block;
+  cursor: pointer;
+}
+
+.checklist input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  accent-color: var(--navy);
+}
+
+.result {
+  margin: 0.8rem 0;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  background: var(--bg);
+  font-weight: 700;
+}
+
+.result.ok {
+  background: var(--green-soft);
+  color: #14532d;
+}
+
+.result.pause {
+  background: var(--amber-soft);
+  color: #6b4700;
+}
+
+.result.stop {
+  background: #fde4e1;
+  color: #8a1c10;
+}
+
+/* glossary: terms are wrapped in div.term so the search can hide them (Member 11) */
+.glossary {
+  margin: 0;
+}
+
+.glossary-search {
+  display: block;
+  width: 100%;
+  max-width: 24rem;
+  margin: 0.4rem 0 0.6rem;
+  padding: 0.5rem 0.7rem;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.glossary-search:focus {
+  border-color: var(--navy);
+  outline: none;
+}
+
+/* FAQ */
+details {
+  margin: 0.5rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+summary {
+  padding: 0.6rem 0.9rem;
+  color: var(--navy);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+
+details p {
+  margin: 0;
+  padding: 0.6rem 0.9rem;
+}
+
+/* long links in tables must not push the page wider on phones */
+.data td:last-child {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 40rem) {
+  .data th,
+  .data td {
+    padding: 0.4rem 0.45rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* contact table turns into stacked cards on phones (Member 10) */
+@media (max-width: 40rem) {
+  .stack thead {
+    position: absolute;
+    left: -999px;
+  }
+
+  .stack tr {
+    display: block;
+    margin-bottom: 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  .stack td {
+    display: block;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stack td:last-child {
+    border-bottom: 0;
+  }
+
+  .stack td::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
