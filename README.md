@@ -1,53 +1,65 @@
-# Sente Safe: working notes for the group
+# Sente Safe
 
-Six pages, twelve sections, one section per member. Plain HTML and CSS, no templates or builders.
+Sente Safe is a student awareness website built to help people in Uganda spot mobile money scams before they lose money. The project explains common scam patterns, shows how to stay safe, and tells users what to do if they have already been targeted.
 
-## Files
+## What the project does
 
-| File | Sections |
-|---|---|
-| `index.html` | S1 Welcome (hero), S2 The problem |
-| `scams.html` | S3 Fake jobs and scholarships, S4 Fake loans and investments |
-| `tricks.html` | S5 Fake prizes and PIN scams, S6 SIM cards and National ID |
-| `safe.html` | S7 Check before you pay, S8 Safe habits |
-| `act.html` | S9 Been scammed? First hour, S10 Where to report |
-| `learn.html` | S11 Glossary and FAQ, S12 About and sources |
+This site is designed around a simple idea: people should be able to check a suspicious offer before paying. It teaches users how to recognize fake jobs, scholarships, loans, prize messages, fake investment offers, and tricks involving PINs, SIM cards, or National ID details.
 
-Shared: `css/style.css`, `js/main.js`, `images/` (logo and favicon, plus your pictures).
+The website includes:
 
-`js/main.js` is about 40 lines and does two things: the scam tip on the home page (S1) and the red-flag counter on the checklist (S7). Pages still work without it. S1 and S7 owners should be able to explain it line by line.
+- A homepage that explains the problem and points people to the most useful pages
+- Scam education pages covering fake jobs, loans, scholarships, and prize scams
+- A safe-use page with a red-flag checklist and practical habits
+- An action page with the first steps to take after being scammed
+- A learning page with glossary, sources, and more background information
 
-## Rules
+## Project structure
 
-1. Edit only your own section, inside its `<section>` tag. Keep the `id` and the `<h2>`.
-2. Do not change the header, navigation or footer. They must stay identical on every page. If one must change, tell the lead so all six pages are updated together.
-3. Every section already has draft text. It is a starting point only: rewrite it in your own words, check each fact against the numbered source, and keep the `[n]` citations. Do not delete a fact that has a source unless you replace it with one that has.
-4. Every section has a dashed image slot. Add your picture to `images/` using the file name shown in the slot, then replace the slot `<div>` with an `<img>` as the comment above it explains. No dashed slot may be left when you submit. Every `<img>` needs a `width`, `height` and meaningful `alt` text (use `alt=""` only for decoration). Credit any image that is not ours.
-5. Write your own words and name the source next to each fact. Sample scam messages are invented, with no real numbers or names.
-6. Need a new style? Ask the lead, or add it at the bottom of `css/style.css` with a comment saying whose it is.
-7. Before you share your work, run your page through the W3C validators (see below) and fix every error.
+- `index.html` — home page
+- `scams.html` — scam examples and scam types
+- `tricks.html` — mobile money tricks and common scam tactics
+- `safe.html` — safety checklist and good habits
+- `act.html` — what to do after a scam
+- `learn.html` — glossary, sources, and references
+- `css/style.css` — shared styling for the whole website
+- `js/main.js` — small JavaScript for the rotating scam tips and the red-flag checklist counter
+- `images/` — logos, icons, and page illustrations
 
-## Ready-made pieces in style.css
+## Features
 
-- `<div class="callout">` warning or tip box (add `safe` for a green one)
-- `<p class="example">` invented sample scam message
-- `<ol class="steps">` numbered steps
-- `<table class="data">` with `<caption>`, `<th>` and `<td>`
-- `<dl class="glossary">` with `<dt>` and `<dd>`
-- `<blockquote class="quote">` with `<cite>`
-- `<figure class="figure">` with `<figcaption>` for image and credit
+- Clean, mobile-friendly layout
+- Shared navigation across all pages
+- A simple checklist that counts red flags before a payment is made
+- Scam tips that change on the home page
+- Clear guidance on where to report fraud and how to protect mobile money accounts
 
-## Checking your work
+## How to run it
 
-- HTML: https://validator.w3.org/ (Validate by File Upload)
-- CSS: https://jigsaw.w3.org/css-validator/ (By file upload, pick `css/style.css`)
-- Phone view: narrow the browser window, and check the navigation and your section still read well.
-- Be ready to explain every line of your section and make a small change live.
+Because this is a static website, you can open any page in a browser directly:
 
-## Adding your picture
+1. Open `index.html` in your browser, or
+2. Use a local server in the project folder if you prefer
 
-1. Take or make an image about 1200 x 750 px (16:10) and keep it under 200 KB (JPG or PNG; compress it if larger).
-2. Use only your own photo or graphic, or an openly licensed image you can credit. No copied news images, no brand logos, no real phone numbers, no ID numbers, and no faces without permission.
-3. Save it in `images/` with the file name shown in your slot.
-4. In your section, replace the `<div class="slot">...</div>` with `<img src="images/your-file.jpg" width="1200" height="750" alt="what the picture shows">`.
-5. Write the credit in the `<figcaption>`, and make sure the row for your file in the credits table (About and sources) is filled in.
+Example:
+
+```bash
+python -m http.server 8000
+```
+
+Then visit:
+
+```text
+http://localhost:8000
+```
+
+## Tech used
+
+- HTML5
+- CSS3
+- JavaScript
+- No frameworks or build tools needed
+
+## Purpose
+
+The project is a student-led awareness campaign focused on digital safety and scam prevention. It is meant to educate, warn, and guide people toward safer mobile money habits, especially in a setting where scam messages can look convincing and urgent.
